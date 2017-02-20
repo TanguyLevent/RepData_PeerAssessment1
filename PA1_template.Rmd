@@ -64,10 +64,25 @@ The results of the mean and median are *10 766.79 steps* and *10 765 steps*
 
 ## What is the average daily activity pattern?
 
+Here below a graph indicating the average number of steps during a 5-minute internal over all the days
 
+![Sample panel plot](instructions_fig/plot2.png)
+
+By computing the code below, the best number of steps (taken the average of 53 days) is at the 835 minutes !!
+```{r}
+max_interval <- mean_5min[mean_5min$steps ==  max(mean_5min$steps),]
+```
 
 ## Imputing missing values
 
-
+Already done above !!!
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+####1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+
+```{r}
+activity$date <- as.POSIXlt(activity$date, format = "%Y-%m-%d") # put a format date 
+activity$Day_Category <- weekdays(activity$date) # use the weekdays function to display day name
+activity$Day_Category <- ifelse(activity$Day_Category %in% c("Samedi", "Dimanche"), "weekend", "weekday")
+```
