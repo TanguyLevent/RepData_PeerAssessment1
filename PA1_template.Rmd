@@ -8,7 +8,8 @@ output:
 
 ## Loading and preprocessing the data
 
-Data are uploaded from this website [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip)
+Data are uploaded from this website [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip) and 
+have the name of *Activity.csv*
 
 ## What is mean total number of steps taken per day?
 
