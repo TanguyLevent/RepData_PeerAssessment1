@@ -1,5 +1,5 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
+title: "Reproducible Research: An example"
 output: 
   html_document:
     keep_md: true
@@ -34,11 +34,9 @@ head(activity)
 ![Sample panel plot](instructions_fig/head activity.png) 
 ## What is mean total number of steps taken per day?  
 
-For this part of the assignment, you can ignore the missing values in the dataset.  
-
 ####1. Make a histogram of the total number of steps taken each day  
 
-- Arrange your dataset by grouping steps by day and and make a sum over it :  
+- Arrange your dataset by grouping steps by day  and make a sum over it :  
 
 ```{r}
 total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
@@ -55,6 +53,15 @@ hist(total_steps$steps,  col = c("#3399FF"),xlab = "Total steps", main = "Total 
 Result : 
 
 ![Sample panel plot](instructions_fig/plot1.png)
+
+####2. Calculate and report the mean and median of the total number of steps taken per day
+```{r}
+mean <-  total_steps %>%  summarise(steps = round(mean(steps),2))
+median <-  total_steps %>% summarise(steps = median(steps))
+```
+
+The results of the mean and median are *10 766.79 steps* and *10 765 steps*
+
 ## What is the average daily activity pattern?
 
 

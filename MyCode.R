@@ -9,8 +9,11 @@ activity <- na.omit(activity) # Remove Missing values from my dataset
 head(activity)
 
 total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
+head(total_steps)
 hist(total_steps$steps,  col = c("#3399FF"),xlab = "Total steps", main = "Total steps by day")
-#barplot(total_steps$steps, names = total_steps$date ,ylab = "Steps", xlab = "Days", main = "Total steps by day", col = c("#3399FF"))
+
+dev.copy(png, file = "instructions_fig/plot1.png", width=480, height=480)
+dev.off()
 
 mean <-  total_steps %>%  summarise(steps = round(mean(steps),2))
 median <-  total_steps %>% summarise(steps = median(steps))
