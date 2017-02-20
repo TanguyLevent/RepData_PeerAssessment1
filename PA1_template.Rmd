@@ -1,9 +1,8 @@
 ---
-title: 'Reproducible Research: An example'
-author: Tanguy Levent
-date : "Ferbruary 20, 2017""
-output: RMD_Document
- 
+title: "Reproducible Research : Example"
+author: "Tanguy Levent"
+date: "February 20, 2017"
+output: html_document
 ---
 
 
