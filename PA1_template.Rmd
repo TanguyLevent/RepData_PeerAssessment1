@@ -46,8 +46,8 @@ total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
 
 Result :  
 ![Sample panel plot](instructions_fig/Total Steps.png)
-
-   - Plot the histogram
+  
+  - Plot the histogram
 
 
 ## What is the average daily activity pattern?
