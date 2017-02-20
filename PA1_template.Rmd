@@ -48,8 +48,13 @@ Result :
 ![Sample panel plot](instructions_fig/Total Steps.png)
   
 - Plot the histogram
+```{r}
+hist(total_steps$steps,  col = c("#3399FF"),xlab = "Total steps", main = "Total steps by day")
+```
 
+Result : 
 
+![Sample panel plot](instructions_fig/plot1.png)
 ## What is the average daily activity pattern?
 
 
