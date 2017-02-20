@@ -19,10 +19,12 @@ total_NA <- sum(is.na(activity)) # Already store my sum of Missing Value for for
 activity <- na.omit(activity) # Remove Missing values from my dataset  
 ```
 
+Look at the dataset : 
+
 ```{r}
 head(activity)
 ```
-
+![Sample panel plot](instructions_fig/head activity.png) 
 ## What is mean total number of steps taken per day?
 
 
