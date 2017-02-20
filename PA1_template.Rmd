@@ -11,13 +11,15 @@ output:
 Data are download from this website [Activity monitoring data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip), store on my folder (don't
 forget to change your working directory on RStudio) as the name of **"Activity.csv"** .
 
-Time to call your data on RStudio and clean it by removing the missing value :
+Time to call your data on RStudio and clean it by removing the missing values :
 
 ```{r}
 activity <- read.csv("activity.csv", na.strings = "NA")
 total_NA <- sum(is.na(activity)) # Already store my sum of Missing Value for forward
 activity <- na.omit(activity) # Remove Missing values from my dataset
 ```
+
+head(activity)
 
 ## What is mean total number of steps taken per day?
 
