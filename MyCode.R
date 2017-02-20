@@ -1,6 +1,12 @@
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+
 activity <- read.csv("activity.csv", na.strings = "NA")
-total_NA <- sum(is.na(activity))
-activity <- na.omit(activity)
+total_NA <- sum(is.na(activity)) # Already store my sum of Missing Value for forward
+activity <- na.omit(activity) # Remove Missing values from my dataset
+
+head(activity)
 
 total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
 hist(total_steps$steps,  col = c("#3399FF"),xlab = "Total steps", main = "Total steps by day")
