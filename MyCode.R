@@ -21,6 +21,9 @@ median <-  total_steps %>% summarise(steps = median(steps))
 mean_5min <-  activity %>% group_by(interval) %>% summarise(steps = round(mean(steps),2))
 plot(mean_5min$interval, mean_5min$steps, type="l",xlab = "5-minute interval", ylab = "Number of steps",main = "Average steps of 5 min interval",col = c("#FF6666"))
 
+dev.copy(png, file = "instructions_fig/plot2.png", width=480, height=480)
+dev.off()
+
 max_interval <- mean_5min[mean_5min$steps ==  max(mean_5min$steps),]
 
 #change format date
@@ -29,11 +32,14 @@ activity$date <- as.POSIXlt(activity$date, format = "%Y-%m-%d")
 activity$Day_Category <- weekdays(activity$date)
 activity$Day_Category <- ifelse(activity$Day_Category %in% c("Samedi", "Dimanche"), "weekend", "weekday")
 
-activity2 <- select(activity , -(date))
-wkday <- activity2 %>% group_by(Day_Category,interval) %>% summarise(steps = round(mean(steps),2))
+activity2 <- select(activity , -(date)) #Remove date column
+wkday <- activity2 %>% group_by(Day_Category,interval) %>% summarise(steps = round(mean(steps),2)) # Arrange dataset for plotting
 
+### MY PLOT ###
 ggplot(wkday, aes(factor(interval), steps, fill=Day_Category)) + 
         geom_bar(stat="identity") + 
         facet_grid(Day_Category~.) + 
         scale_fill_brewer(palette="Pastel1")
 
+dev.copy(png, file = "instructions_fig/plot3.png", width=720, height=480)
+dev.off()

@@ -68,7 +68,7 @@ Here below a graph indicating the average number of steps during a 5-minute inte
 
 ![Sample panel plot](instructions_fig/plot2.png)
 
-By computing the code below, the best number of steps (taken the average of 53 days) is at the 835 minutes !!
+By computing the code below, the best number of steps (taken the average of 53 days) is equals to 206 steps at the 835 minutes !!
 ```{r}
 max_interval <- mean_5min[mean_5min$steps ==  max(mean_5min$steps),]
 ```
@@ -86,3 +86,19 @@ activity$date <- as.POSIXlt(activity$date, format = "%Y-%m-%d") # put a format d
 activity$Day_Category <- weekdays(activity$date) # use the weekdays function to display day name
 activity$Day_Category <- ifelse(activity$Day_Category %in% c("Samedi", "Dimanche"), "weekend", "weekday")
 ```
+
+####2. Make a panel plot containing a time series plot of the 5-minute interval and the average number of steps taken, averaged across all weekday days or weekend days
+```{r}
+activity2 <- select(activity , -(date)) #Remove date column
+wkday <- activity2 %>% group_by(Day_Category,interval) %>% summarise(steps = round(mean(steps),2)) # Arrange dataset for plotting
+
+### MY PLOT ###
+ggplot(wkday, aes(factor(interval), steps, fill=Day_Category)) + 
+        geom_bar(stat="identity") + 
+        facet_grid(Day_Category~.) + 
+        scale_fill_brewer(palette="Pastel1")
+```
+
+Result : 
+
+![Sample panel plot](instructions_fig/plot3.png)
