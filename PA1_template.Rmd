@@ -38,7 +38,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 
 1. Make a histogram of the total number of steps taken each day  
 
- - Arrange your dataset by grouping steps by day and and make a sum over it :  
+- Arrange your dataset by grouping steps by day and and make a sum over it :  
 
 ```{r}
 total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
@@ -47,7 +47,7 @@ total_steps <- activity %>% group_by(date) %>% summarise(steps = sum(steps))
 Result :  
 ![Sample panel plot](instructions_fig/Total Steps.png)
   
-  - Plot the histogram
+- Plot the histogram
 
 
 ## What is the average daily activity pattern?
